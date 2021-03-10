@@ -11,15 +11,19 @@ cookie = driver.find_element_by_css_selector("#bigCookie")
 
 
 def click_cookie():
-    for i in range(500):
+    for i in range(100):
         cookie.click()
 
 
 def upgrade():
-    upgrades_tab = driver.find_element_by_css_selector("#products")
+    upgrades_tab = driver.find_element_by_css_selector("#upgrades")
     upgrades_list = upgrades_tab.find_elements_by_css_selector(".enabled")
+    products_tab = driver.find_element_by_css_selector("#products")
+    products_list = products_tab.find_elements_by_css_selector(".enabled")
     if len(upgrades_list) != 0:
         upgrades_list[-1].click()
+    elif len(products_list) != 0:
+        products_list[-1].click()
 
 
 while True:
